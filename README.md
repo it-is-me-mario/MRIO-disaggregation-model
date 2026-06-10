@@ -8,7 +8,9 @@ It is suggested to create a specific environment where to install the required p
 Install MARIO from the GitHub repository: download or syncronize to the dev_gtap_VA branch https://github.com/it-is-me-mario/MARIO/tree/dev_gtap_VA
 
 Use the following instructions in the prompt window to install the correct version of MARIO:
+  
   *cd your/path/of/the/MARIO/folder*
+  
   *pip install -e .*
 
 # GTAP12 enhancement example
