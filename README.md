@@ -1,8 +1,8 @@
 # Multi Regional Input Output Tables sectorial disaggregation
-Guided example of disaggregation of a sector in a MRIOT table.
+Guided example of disaggregation of a sector in a MRIOT table using MARIO.
 
 # Preliminary installations
-It is suggested to create a specific environment where to install the required python packages.
+It is suggested to create a specific Python environment since some features are not yet released in MARIO official release.
 
 ```bash
 conda create -n mario python=3.12
