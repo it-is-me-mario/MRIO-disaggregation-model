@@ -3,6 +3,7 @@ Guided example of disaggregation of a sector in a MRIOT table.
 
 # Preliminary installations
 It is suggested to create a specific environment where to install the required python packages.
+
   *conda create -n mario python=3.12*
 
 Install MARIO from the GitHub repository: download or syncronize to the dev_gtap_VA branch https://github.com/it-is-me-mario/MARIO/tree/dev_gtap_VA
