@@ -8,9 +8,9 @@ It is suggested to create a specific Python environment since some features are 
 conda create -n mario python=3.12
 ```
 
-Install MARIO from the GitHub repository: download or synchronize to the dev_gtap_VA branch https://github.com/it-is-me-mario/MARIO/tree/dev_gtap_VA
+Install MARIO from the GitHub repository: download or synchronize to the main branch https://github.com/it-is-me-mario/MARIO/tree/main
 
-Use the following instructions in the prompt window to install the correct version of MARIO:
+Use the following instructions in the prompt window to install MARIO:
 
 ```bash
 cd your/path/of/the/MARIO/folder
