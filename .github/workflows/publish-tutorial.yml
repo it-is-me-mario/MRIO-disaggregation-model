@@ -1,0 +1,44 @@
+name: Refresh Tutorials site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*.ipynb'
+      - '*.xlsx'
+      - README.md
+      - .github/workflows/publish-tutorial.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Request the Tutorials publication
+        env:
+          GH_TOKEN: ${{ secrets.TUTORIALS_PUBLISH_TOKEN }}
+          SOURCE_REPOSITORY: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo 'Configure TUTORIALS_PUBLISH_TOKEN with Actions write access to it-is-me-mario/Tutorials.' >&2
+            exit 1
+          fi
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          payload = {
+              "ref": "main",
+              "inputs": {
+                  "source_repository": os.environ["SOURCE_REPOSITORY"],
+                  "source_sha": os.environ["SOURCE_SHA"],
+              },
+          }
+          (Path(os.environ["RUNNER_TEMP"]) / "tutorial-refresh.json").write_text(json.dumps(payload))
+          PY
+          gh api --method POST repos/it-is-me-mario/Tutorials/actions/workflows/pages.yml/dispatches \
+            --input "$RUNNER_TEMP/tutorial-refresh.json"
